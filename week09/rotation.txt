@@ -1,0 +1,65 @@
+
+   20 - 10 - 40 - 50 - 30 - 60
+
+Tree becomes right - right heavy: 
+
+       20     <--- detected left tree is height 2, right tree is height 4
+      /  \
+    10   40        
+        /   \
+      30    50
+              \
+              60
+
+perform SINGLE left rotation around 40, 20 adopts the left child of 40
+      
+       40
+      /  \
+    20   50
+   /  \    \
+ 10   30    60
+
+
+Further insertions
+
+   20 - 10 - 40 - 50 - 30 - 60 - 25 - 35 - 28
+
+Sub tree at node 20 becomes right - left heavy: 
+
+           40
+          /  \
+heavy-> 20   50
+       /  \    \
+     10   30    60
+         /  \
+        25   35
+         \
+         28
+
+right side height 4, left side height 2, difference > 1
+Because it is right - left heavy, we need to perform 2 rotations
+first right rotation to counter the left
+second left rotation to counter the right
+
+Rotate right around 25 to become a right right heavy tree
+           40
+          /  \
+        20   50
+       /  \    \
+     10   25    60
+            \
+             30
+            /  \
+           28  35
+
+Rotate left around 25 to be balance the tree
+
+           40
+          /  \
+        25   50
+       /  \    \
+     20   30    60
+    /     /  \
+   10   28    35
+
+
